@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerAI - Career Guidance</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="px-4 py-3 flex items-center justify-between bg-black/80 backdrop-blur-sm fixed w-full z-50">
+        <div class="text-2xl font-bold text-white">CareerAI</div>
+        <div class="hidden md:flex space-x-6">
+            <a href="#" class="text-white hover:text-gray-300">Home</a>
+            <a href="#" class="text-white hover:text-gray-300">Assessment</a>
+            <a href="#" class="text-white hover:text-gray-300">AI Chatbot</a>
+            <a href="#" class="text-white hover:text-gray-300">Resources</a>
+            <a href="#" class="text-white hover:text-gray-300">Blog</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="px-4 py-2 text-white hover:text-gray-300">Login</button>
+            <button class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">Sign Up</button>
+            <button class="text-white hover:text-gray-300"><i class="bi bi-moon-fill"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="gradient-bg min-h-screen flex items-center justify-center relative">
+        <div class="floating-particles" id="particles"></div>
+        <div class="text-center px-4 pt-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                AI-Powered Career Guidance<br>at Your Fingertips
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Discover your ideal career path with personalized recommendations powered by advanced AI technology.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="px-8 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center">
+                    Start Your Career Journey <i class="bi bi-arrow-right ml-2"></i>
+                </button>
+                <button class="px-8 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for(let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 8 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
